@@ -3,7 +3,9 @@ let historySets = [];
 const MAX_HISTORY = 5;
 
 let currentWordCount = 1;
-let gameState = "start"; // start / counting / words
+let gameState = "start";
+let wordsLoaded = false;
+let countInterval = null;
 
 const startScreen = document.getElementById("startScreen");
 const countScreen = document.getElementById("countScreen");
@@ -17,13 +19,13 @@ const startBtn = document.getElementById("startBtn");
 /* ワード読み込み */
 fetch("words.json")
   .then(res => {
-    if (!res.ok) {
-      throw new Error("JSON読み込み失敗");
-    }
+    if (!res.ok) throw new Error("JSON読み込み失敗");
     return res.json();
   })
   .then(data => {
     allWords = data;
+    wordsLoaded = true;
+    startBtn.disabled = false; // ← 読み込み完了で有効化
   })
   .catch(err => {
     console.error(err);
@@ -47,12 +49,15 @@ plusBtn.addEventListener("click", () => {
 /* スタート */
 startBtn.addEventListener("click", () => {
   if (gameState !== "start") return;
+  if (!wordsLoaded) return;
+
   startCountSequence();
 });
 
 /* ワード画面タップ */
 wordScreen.addEventListener("click", () => {
   if (gameState !== "words") return;
+
   startCountSequence();
 });
 
@@ -67,18 +72,24 @@ function showScreen(id) {
 
 /* カウント開始 */
 function startCountSequence() {
+  if (countInterval) {
+    clearInterval(countInterval);
+    countInterval = null;
+  }
+
   gameState = "counting";
   showScreen("countScreen");
 
   let num = 3;
   countScreen.textContent = num;
 
-  const interval = setInterval(() => {
+  countInterval = setInterval(() => {
     num--;
     if (num > 0) {
       countScreen.textContent = num;
     } else {
-      clearInterval(interval);
+      clearInterval(countInterval);
+      countInterval = null;
       showWords();
     }
   }, 1000);
@@ -95,7 +106,6 @@ function showWords() {
 
 /* ワード生成 */
 function generateWords(count) {
-
   const recentWords = historySets.flat();
   const available = allWords.filter(word => !recentWords.includes(word));
 
@@ -146,4 +156,3 @@ function renderWords(words) {
     wordScreen.appendChild(div);
   });
 }
-
