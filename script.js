@@ -31,8 +31,6 @@ fetch("words.json")
     console.error(err);
   });
 
-console.log("総単語数:", allWords.length);
-
 /* ＋－操作 */
 minusBtn.addEventListener("click", () => {
   if (currentWordCount > 1) {
@@ -52,7 +50,7 @@ plusBtn.addEventListener("click", () => {
 startBtn.addEventListener("click", () => {
   if (gameState !== "start") return;
   if (!wordsLoaded) return;
-
+  console.log("総単語数:", allWords.length);
   startCountSequence();
 });
 
@@ -165,6 +163,7 @@ function getRandomColor() {
   const hue = Math.floor(Math.random() * 360);
   return `hsl(${hue}, 70%, 40%)`;
 }
+
 
 
 
