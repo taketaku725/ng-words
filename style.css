@@ -82,9 +82,7 @@ body {
 
 /* ワード画面 */
 #wordScreen {
-  display: grid;          /* ← ここで flex を上書き */
-  gap: 2vw;
-  padding: 2vw;
+  display: grid;
   width: 100vw;
   height: 100vh;
 }
@@ -96,7 +94,5 @@ body {
   font-size: clamp(24px, 6vw, 80px);
   font-weight: bold;
   text-align: center;
-  word-break: break-word;
-  border: 2px solid #fff;
+  color: #fff;
 }
-
