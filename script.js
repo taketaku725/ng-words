@@ -1,5 +1,3 @@
-console.log("JS読み込まれた");
-
 let allWords = [];
 let historySets = [];
 const MAX_HISTORY = 5;
@@ -110,7 +108,6 @@ function showWords() {
 function generateWords(count) {
   const recentWords = historySets.flat();
   const available = allWords.filter(word => !recentWords.includes(word));
-  console.log("allWords:", allWords.length);
 
   shuffle(available);
 
@@ -167,3 +164,4 @@ function getRandomColor() {
   const hue = Math.floor(Math.random() * 360);
   return `hsl(${hue}, 70%, 40%)`;
 }
+
