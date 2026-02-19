@@ -31,6 +31,8 @@ fetch("words.json")
     console.error(err);
   });
 
+console.log("総単語数:", allWords.length);
+
 /* ＋－操作 */
 minusBtn.addEventListener("click", () => {
   if (currentWordCount > 1) {
@@ -164,4 +166,5 @@ function getRandomColor() {
   const hue = Math.floor(Math.random() * 360);
   return `hsl(${hue}, 70%, 40%)`;
 }
+
 
