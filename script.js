@@ -137,6 +137,8 @@ function shuffle(array) {
 function renderWords(words) {
   wordScreen.innerHTML = "";
 
+  const colors = ["red", "blue", "yellow", "green"];
+
   if (words.length === 1) {
     wordScreen.style.gridTemplateColumns = "1fr";
     wordScreen.style.gridTemplateRows = "1fr";
@@ -144,20 +146,17 @@ function renderWords(words) {
     wordScreen.style.gridTemplateColumns = "1fr 1fr";
     wordScreen.style.gridTemplateRows = "1fr";
   } else if (words.length === 3) {
-    wordScreen.style.gridTemplateColumns = "repeat(3, 1fr)";
+    wordScreen.style.gridTemplateColumns = "1fr 1fr 1fr";
     wordScreen.style.gridTemplateRows = "1fr";
   } else if (words.length === 4) {
-    wordScreen.style.gridTemplateColumns = "repeat(2, 1fr)";
-    wordScreen.style.gridTemplateRows = "repeat(2, 1fr)";
+    wordScreen.style.gridTemplateColumns = "1fr 1fr";
+    wordScreen.style.gridTemplateRows = "1fr 1fr";
   }
 
-  words.forEach(word => {
+  words.forEach((word, index) => {
     const div = document.createElement("div");
-    div.className = "word";
+    div.className = `word ${colors[index]}`;
     div.textContent = word;
-
-    div.style.backgroundColor = getRandomColor();
-
     wordScreen.appendChild(div);
   });
 }
@@ -166,5 +165,6 @@ function getRandomColor() {
   const hue = Math.floor(Math.random() * 360);
   return `hsl(${hue}, 70%, 40%)`;
 }
+
 
 
