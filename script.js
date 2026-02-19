@@ -108,6 +108,7 @@ function showWords() {
 function generateWords(count) {
   const recentWords = historySets.flat();
   const available = allWords.filter(word => !recentWords.includes(word));
+  console.log("allWords:", allWords.length);
 
   shuffle(available);
 
@@ -156,3 +157,4 @@ function renderWords(words) {
     wordScreen.appendChild(div);
   });
 }
+
