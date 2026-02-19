@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NGワード</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- スタート画面 -->
+  <div id="startScreen" class="screen">
+    <div class="startContainer">
+      <div class="label">ワード数</div>
+      <div class="counter">
+        <button id="minusBtn">－</button>
+        <span id="wordCount">1</span>
+        <button id="plusBtn">＋</button>
+      </div>
+      <button id="startBtn" class="startBtn">START</button>
+    </div>
+  </div>
+
+  <!-- カウント画面 -->
+  <div id="countScreen" class="screen hidden"></div>
+
+  <!-- ワード画面 -->
+  <div id="wordScreen" class="screen hidden"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
