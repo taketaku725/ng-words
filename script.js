@@ -137,16 +137,23 @@ function renderWords(words) {
 
   const colors = ["red", "blue", "yellow", "green"];
 
+  // レイアウト固定
   if (words.length === 1) {
     wordScreen.style.gridTemplateColumns = "1fr";
     wordScreen.style.gridTemplateRows = "1fr";
-  } else if (words.length === 2) {
+  }
+
+  if (words.length === 2) {
     wordScreen.style.gridTemplateColumns = "1fr 1fr";
     wordScreen.style.gridTemplateRows = "1fr";
-  } else if (words.length === 3) {
+  }
+
+  if (words.length === 3) {
     wordScreen.style.gridTemplateColumns = "1fr 1fr 1fr";
     wordScreen.style.gridTemplateRows = "1fr";
-  } else if (words.length === 4) {
+  }
+
+  if (words.length === 4) {
     wordScreen.style.gridTemplateColumns = "1fr 1fr";
     wordScreen.style.gridTemplateRows = "1fr 1fr";
   }
@@ -158,3 +165,5 @@ function renderWords(words) {
     wordScreen.appendChild(div);
   });
 }
+
+
