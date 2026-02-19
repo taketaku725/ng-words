@@ -5,6 +5,10 @@
   font-family: sans-serif;
 }
 
+html, body {
+  touch-action: manipulation;
+}
+
 body {
   background: #111;
   color: #fff;
@@ -95,3 +99,4 @@ body {
   word-break: break-word;
   border: 2px solid #fff;
 }
+
