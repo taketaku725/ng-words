@@ -32,7 +32,7 @@ body {
 }
 
 /* 縦持ち禁止 */
-@media (orientation: portrait) {
+@media (max-aspect-ratio: 1/1) {
   body::before {
     content: "横向きにしてください";
     position: fixed;
@@ -160,4 +160,5 @@ body {
 .green {
   background: #c8f7c5;
 }
+
 
