@@ -16,9 +16,17 @@ const startBtn = document.getElementById("startBtn");
 
 /* ワード読み込み */
 fetch("words.json")
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) {
+      throw new Error("JSON読み込み失敗");
+    }
+    return res.json();
+  })
   .then(data => {
     allWords = data;
+  })
+  .catch(err => {
+    console.error(err);
   });
 
 /* ＋－操作 */
@@ -138,3 +146,4 @@ function renderWords(words) {
     wordScreen.appendChild(div);
   });
 }
+
