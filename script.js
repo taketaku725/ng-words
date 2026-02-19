@@ -156,8 +156,9 @@ function renderWords(words) {
     const div = document.createElement("div");
     div.className = "word";
     div.textContent = word;
+
+    div.style.backgroundColor = getRandomColor();
+
     wordScreen.appendChild(div);
   });
 }
-
-
