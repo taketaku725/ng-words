@@ -1,3 +1,5 @@
+console.log("JS読み込まれた");
+
 let allWords = [];
 let historySets = [];
 const MAX_HISTORY = 5;
@@ -157,4 +159,5 @@ function renderWords(words) {
     wordScreen.appendChild(div);
   });
 }
+
 
