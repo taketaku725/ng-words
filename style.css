@@ -131,8 +131,6 @@ body {
   display: grid;
   width: 100vw;
   height: 100vh;
-  position: fixed;
-  inset: 0;
 }
 
 .word {
@@ -162,3 +160,4 @@ body {
 .green {
   background: #c8f7c5;
 }
+
